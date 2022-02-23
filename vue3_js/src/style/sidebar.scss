@@ -1,0 +1,33 @@
+#app {
+    .sidebar_container {
+        height: 100%;
+        background-color: $menuBg;
+        // menu为收起时的央视样式
+        &_menu:not(.el-menu--collapse) {
+            width: $sideBarWidth;
+        }
+
+		// 菜单收起时的样式调整
+		.el-menu--collapse {
+			// 隐藏submenu title
+			.submenu_title {
+			  display: none;
+			}
+		}
+		.el-submenu {
+			.el-menu {
+			  .el-menu-item {
+				background-color: $subMenuBg !important;
+				&:hover {
+				  background-color: $subMenuHover !important;
+				}
+			  }
+			}
+		  }
+
+
+        .el-menu {
+            border: none;
+        }
+    }
+}
