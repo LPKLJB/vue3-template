@@ -19,11 +19,18 @@
 <script>
 import avatar from "@/assets/logo.png";
 import { defineComponent } from "@vue/runtime-core";
+import { useStore } from 'vuex'
+import { getCurrentInstance } from 'vue'
 
 export default defineComponent({
     setup() {
+        const store = useStore()
+        const { proxy } = getCurrentInstance()
         const logout = () => {
-            alert("我退出了!");
+            store.dispatch('user/logOut').then(() => {
+                proxy.$message.success("退出登录!")
+                window.location.reload()
+            })
         };
         return {
             logout,

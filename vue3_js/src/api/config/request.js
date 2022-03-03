@@ -2,6 +2,8 @@ import axios from "axios";
 import { getSession } from "@/libs/index";
 import { ElMessage } from 'element-plus'
 import router from "../router"; //路由
+// import { useStore } from 'vuex'
+// const store = useStore()
 let instance = axios.create({
     timeout: 30000,
     baseURL: "",
@@ -66,6 +68,11 @@ instance.interceptors.response.use(
         return addErrorLog(res);
     },
     (err) => {
+        // if (err && err.status === 401) { // 401 未登录 token失效
+        //     store.dispatch('user/resetToken').then(() => {
+        //         window.location.reload()
+        //     })
+        // }
         ElMessage.error("系统异常！");
         return addErrorLog(err);
     }

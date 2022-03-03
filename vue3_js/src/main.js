@@ -10,5 +10,8 @@ import 'normalize.css/normalize.css'
 import '@/style/index.scss'
 // svg icon
 import initSvgIcon from '@/icons/index'
+import './permission'
+// 权限指令
+import permissionDirective from './directive/permission/index'
 
-createApp(App).use(store).use(router).use(installElementPlus).use(initSvgIcon).mount("#app");
+createApp(App).use(permissionDirective).use(store).use(router).use(installElementPlus).use(initSvgIcon).mount("#app");
