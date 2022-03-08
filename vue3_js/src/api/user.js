@@ -1,2 +1,2 @@
-import request from './config/request'
-export const login = (params) => request('/login', params, 'post')
+import getData from './config/axios'
+export const login = (params) => getData('/login', params, 'post')
